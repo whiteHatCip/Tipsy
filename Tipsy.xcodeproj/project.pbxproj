@@ -12,6 +12,7 @@
 		8DA7E4101D61178E00584888 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7E40E1D61178E00584888 /* Main.storyboard */; };
 		8DA7E4121D61178E00584888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7E4111D61178E00584888 /* Assets.xcassets */; };
 		8DA7E4151D61178E00584888 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DA7E4131D61178E00584888 /* LaunchScreen.storyboard */; };
+		8DA8C0DF1D62276900029563 /* TipCalcModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA8C0DE1D62276900029563 /* TipCalcModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		8DA7E4111D61178E00584888 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DA7E4141D61178E00584888 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DA7E4161D61178E00584888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DA8C0DE1D62276900029563 /* TipCalcModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TipCalcModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,39 @@
 		8DA7E4091D61178E00584888 /* Tipsy */ = {
 			isa = PBXGroup;
 			children = (
+				8DA8C0DD1D62270000029563 /* Controller */,
+				8DA8C0DC1D6226FB00029563 /* View */,
+				8DA8C0DB1D6226F000029563 /* Model */,
 				8DA7E40A1D61178E00584888 /* AppDelegate.swift */,
-				8DA7E40C1D61178E00584888 /* TipsyVC.swift */,
 				8DA7E40E1D61178E00584888 /* Main.storyboard */,
 				8DA7E4111D61178E00584888 /* Assets.xcassets */,
 				8DA7E4131D61178E00584888 /* LaunchScreen.storyboard */,
 				8DA7E4161D61178E00584888 /* Info.plist */,
 			);
 			path = Tipsy;
+			sourceTree = "<group>";
+		};
+		8DA8C0DB1D6226F000029563 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8DA8C0DE1D62276900029563 /* TipCalcModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8DA8C0DC1D6226FB00029563 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8DA8C0DD1D62270000029563 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8DA7E40C1D61178E00584888 /* TipsyVC.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DA7E40D1D61178E00584888 /* TipsyVC.swift in Sources */,
+				8DA8C0DF1D62276900029563 /* TipCalcModel.swift in Sources */,
 				8DA7E40B1D61178E00584888 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +330,7 @@
 				8DA7E41B1D61178E00584888 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
