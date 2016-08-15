@@ -31,6 +31,7 @@ class TipsyVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         tipPercentLbl.text = "Tip \(Int(tipPercentSlider.value*100))%"
+        splitLbl.text = "SPLIT \(Int(splitSlider.value))"
     }
     
     
@@ -46,6 +47,12 @@ class TipsyVC: UIViewController {
         updateUI()
     }
     
+    @IBAction func splitSlides(_ sender: AnyObject) {
+        splitLbl.text = "SPLIT \(Int(splitSlider.value))"
+        calcSplit()
+        updateUI()
+    }
+    
     // MARK: Functions
     func calcTip() {
         tipCalc.tipPercent = Double(tipPercentSlider.value)
@@ -53,9 +60,16 @@ class TipsyVC: UIViewController {
         tipCalc.calculateTip()
     }
     
+    func calcSplit() {
+        tipCalc.splitNumber = Int(splitSlider.value)
+        tipCalc.calculateSplit()
+        
+    }
+    
     func updateUI() {
         tipAmountLbl.text = String(format: "$ %0.2f", tipCalc.tipAmount)
         totalAmountLbl.text = String(format: "$ %0.2f", tipCalc.totalAmount)
+        splitAmount.text = String(format: "$ %0.2f", tipCalc.splitAmount)
     }
 }
 
