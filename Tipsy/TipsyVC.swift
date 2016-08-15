@@ -27,6 +27,7 @@ class TipsyVC: UIViewController {
     // MARK: Initialize Views
     override func viewDidLoad() {
         super.viewDidLoad()
+        //billAmountTxt.attributedPlaceholder = NSAttributedString(string:"Enter bill amount here", attributes:[NSForegroundColorAttributeName: UIColor.init(colorLiteralRed: 23.0, green: 183.0, blue: 98.0, alpha: 1.0)])
     }
     
     override func viewDidAppear(_ animated: Bool) {
