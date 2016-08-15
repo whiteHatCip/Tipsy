@@ -27,6 +27,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter bill amount here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZ7-VO-ZB5">
                                 <color key="backgroundColor" red="0.68627450980392157" green="0.70196078431372544" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,7 +36,10 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="billAmountChanging:" destination="BYZ-38-t0r" eventType="editingChanged" id="6Fu-D9-n3X"/>
+                                </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="VGQ-es-dRO">
                                 <subviews>
@@ -49,8 +53,11 @@
                                                 <color key="textColor" red="0.090196078431372548" green="0.71764705882352942" blue="0.3843137254901961" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="28" translatesAutoresizingMaskIntoConstraints="NO" id="oGh-Qm-wZD">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="0.10000000000000001" maxValue="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="oGh-Qm-wZD">
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="tipPercentSlides:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ekl-Dg-Nvx"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -98,23 +105,78 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="fH9-ei-i8Q">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPLIT 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saT-nA-hXw">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="u73-4a-Flm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.090196078430000007" green="0.71764705880000002" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="jpz-v2-f4U">
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="tipPercentSlides:" destination="BYZ-38-t0r" eventType="valueChanged" id="hCX-3N-acp"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DQm-uJ-ji6"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="N2Z-Ul-DKD">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VOd-8w-ZJ6" userLabel="SplitAmount">
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eachIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5qD-XJ-QgL"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Split:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIL-R7-lY4">
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" red="0.090196078430000007" green="0.71764705880000002" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dB-zx-iTx" userLabel="SplitLbl">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.85098039219999999" green="0.4039215686" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="N2Z-Ul-DKD" firstAttribute="centerX" secondItem="TZ7-VO-ZB5" secondAttribute="centerX" id="1S3-J9-DqY"/>
                             <constraint firstItem="VGQ-es-dRO" firstAttribute="trailing" secondItem="TZ7-VO-ZB5" secondAttribute="trailing" id="8ak-Oj-a99"/>
                             <constraint firstItem="TZ7-VO-ZB5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="D14-64-mLh"/>
+                            <constraint firstItem="saT-nA-hXw" firstAttribute="leading" secondItem="TZ7-VO-ZB5" secondAttribute="leading" id="E3M-7Z-7ux"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TZ7-VO-ZB5" secondAttribute="trailing" constant="40" id="IIA-BC-ggz"/>
                             <constraint firstItem="TZ7-VO-ZB5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WfK-67-cji"/>
                             <constraint firstItem="vfb-5W-huU" firstAttribute="centerX" secondItem="TZ7-VO-ZB5" secondAttribute="centerX" id="e79-fk-RTz"/>
+                            <constraint firstItem="N2Z-Ul-DKD" firstAttribute="top" secondItem="fH9-ei-i8Q" secondAttribute="bottom" constant="30" id="f22-d5-YTf"/>
                             <constraint firstItem="Fzy-DT-5vM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fPa-RY-aoK"/>
+                            <constraint firstItem="jpz-v2-f4U" firstAttribute="trailing" secondItem="TZ7-VO-ZB5" secondAttribute="trailing" id="fft-Lx-gV5"/>
                             <constraint firstItem="TZ7-VO-ZB5" firstAttribute="top" secondItem="Fzy-DT-5vM" secondAttribute="bottom" constant="48" id="gwY-Ew-9hC"/>
                             <constraint firstItem="VGQ-es-dRO" firstAttribute="leading" secondItem="TZ7-VO-ZB5" secondAttribute="leading" id="hpE-gn-dcv"/>
                             <constraint firstItem="Fzy-DT-5vM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="les-0R-ZWE"/>
                             <constraint firstItem="VGQ-es-dRO" firstAttribute="top" secondItem="TZ7-VO-ZB5" secondAttribute="bottom" constant="39" id="mfG-CB-DR0"/>
                             <constraint firstItem="oGh-Qm-wZD" firstAttribute="trailing" secondItem="TZ7-VO-ZB5" secondAttribute="trailing" id="nVx-JZ-lP3"/>
                             <constraint firstAttribute="trailing" secondItem="Fzy-DT-5vM" secondAttribute="trailing" id="oKk-cb-dbK"/>
+                            <constraint firstItem="fH9-ei-i8Q" firstAttribute="top" secondItem="VGQ-es-dRO" secondAttribute="bottom" constant="120" id="uSP-HR-xdU"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="billAmountTxt" destination="TZ7-VO-ZB5" id="zHN-lQ-IgE"/>
+                        <outlet property="splitAmount" destination="9dB-zx-iTx" id="npH-6Z-dkk"/>
+                        <outlet property="splitLbl" destination="saT-nA-hXw" id="gYW-0z-1cG"/>
+                        <outlet property="splitSlider" destination="jpz-v2-f4U" id="Lp0-LU-k9p"/>
+                        <outlet property="tipAmountLbl" destination="hES-jq-idi" id="c4B-1c-EEn"/>
+                        <outlet property="tipPercentLbl" destination="1gz-bR-u5c" id="LI1-TM-NqU"/>
+                        <outlet property="tipPercentSlider" destination="oGh-Qm-wZD" id="aaI-AR-Vyc"/>
+                        <outlet property="totalAmountLbl" destination="cTI-Ta-pH7" id="MuZ-IH-DfX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,6 +184,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="eachIcon" width="20" height="23"/>
         <image name="tipIcon" width="23" height="23"/>
         <image name="totalIcon" width="24" height="26"/>
     </resources>
